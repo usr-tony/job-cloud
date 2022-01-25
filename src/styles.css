@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+    font-size: small;
+    color: gray;
+    font-family: monospace, 'Franklin Gothic' ;
+}
+button{
+    color: white;
+    background-color: green
+}
+.navbar{
+    position: fixed;
+}

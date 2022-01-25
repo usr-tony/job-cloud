@@ -1,0 +1,10 @@
+env
+sqlconnect.py
+graph.html
+output.html
+__pycache__
+output
+dbpw.py
+node_modules
+dist
+data.json
