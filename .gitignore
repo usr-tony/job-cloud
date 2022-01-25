@@ -1,5 +1,4 @@
 env
-sqlconnect.py
 graph.html
 output.html
 __pycache__
