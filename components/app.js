@@ -19,16 +19,16 @@ function Lastupdate(props) {
 		text += '1 hour';
 	}
 	if (text != ''){
-		text += ' and'
+		text += ' and '
 	}
 	if (minutes > 1){
 		text += minutes + ' minutes ago'
 	} else if (minutes == 1){
-		text += ' 1 minute ago'
+		text += '1 minute ago'
 	} else if (text == ''){
 		text += 'just now'
 	} else {
-		text += ' ago'
+		text += 'ago'
 	}
     return (
         <div>
