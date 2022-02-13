@@ -65,14 +65,14 @@ def main():
 
 def remove_old_jobs():
     con, cur = create_sql_db()
-    time_threshold = str(round(time()) - (60 * 60 * 24 * 30))
+    time_threshold = int(round(time()) - (60 * 60 * 24 * 30))
     cur.execute('SELECT id, time FROM jobs')
     data = cur.fetchall()
     for r in data:
-        print('id', r[0])
-        print('time', r[1])
-        if r[1] > time_threshold:
-            cur.execute(f'DELETE FROM jobs WHERE id > {r[0]}')
+        if int(r[1]) > time_threshold:
+            q = f'DELETE FROM jobs WHERE id < {str(r[0])}'
+            cur.execute(q)
+            print(q)
             break
 
     con.close()
@@ -174,4 +174,4 @@ def Page(job_id):
 
 
 if __name__ == '__main__':
-    manager()
+    remove_old_jobs()

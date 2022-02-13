@@ -1,4 +1,6 @@
 import mysql.connector
+# add a file named dbpw.py in the current directory with the login credentials as follows
+# or it might be a good idea to use environment variables instead
 from dbpw import endpoint, port, dbuser, dbpass, dbname
 
 # rds database information
