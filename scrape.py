@@ -174,4 +174,4 @@ def Page(job_id):
 
 
 if __name__ == '__main__':
-    remove_old_jobs()
+    manager()
