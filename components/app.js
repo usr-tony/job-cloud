@@ -10,21 +10,33 @@ const defaultState = () => ({
 
 function Lastupdate(props) {
     let seconds = Date.now() / 1000 - props.time
-
     let hours = Math.floor(seconds / 3600)
     let minutes = Math.floor(seconds % 3600 / 60)
     let text = ''
-    if (hours == 1) text += '1 hour'
-    else if (hours != 0) text += hours + ' hours';
-    else if (minutes != 0) text += minutes + ' minutes ago';
-    if (minutes == 0) text += ' ago'
+	if (hours > 1) {
+		text += hours + ' hours'
+	} else if (hours == 1) {
+		text += '1 hour';
+	}
+	if (text != ''){
+		text += ' and '
+	}
+	if (minutes > 1){
+		text += minutes + ' minutes ago'
+	} else if (minutes == 1){
+		text += '1 minute ago'
+	} else if (text == ''){
+		text += 'just now'
+	} else {
+		text += 'ago'
+	}
     return (
         <div>
             <p>
-            Last updated {text}
+                Last updated {text}
             </p>
             <p>
-            updates every 12 hours 
+                updates every 12 hours
             </p>
         </div>
     )
@@ -55,7 +67,7 @@ class App extends React.Component {
         return (
             <div className='d-flex container' style={{ alignItems: 'center', justifyContent: 'center', height: '90vh' }}>
                 <div className=' d-flex flex-column' style={{ marginRight: '5%' }}>
-                    <h4 className='m-3' style={{'textAlign': 'center' }}>
+                    <h4 className='m-3' style={{ 'textAlign': 'center' }}>
                         {this.state.title}
                     </h4>
                     <div id="table"></div>
@@ -64,12 +76,12 @@ class App extends React.Component {
                     <div className="d-flex flex-column">
                         {buttons.map(button => button)}
                     </div>
-                    <Lastupdate time={database[0].time}  />
+                    <Lastupdate time={database[0].time} />
                     <div id='introduction section' className='mt-5'>
                         <p>
-                            Created with React.js, D3.js, Python(backend). 
+                            Created with React.js, D3.js, Python(backend).
                             <br />
-                            Hosted on Amazon Web Services, data stored on 
+                            Hosted on Amazon Web Services, data stored on
                             <br />
                             RDS, hosted on an EC2 instance.
                         </p>
