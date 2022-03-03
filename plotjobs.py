@@ -83,7 +83,6 @@ def sql_query(cur, param):
     return cur.fetchall()
 
 def collect_data(data, title, name): # generates a html plot
-
     data = {
         "name" : name,
         "title" : title,
@@ -91,10 +90,10 @@ def collect_data(data, title, name): # generates a html plot
     }
     return data
 
-def upload_to_s3(obj, filename, tp):
+def upload_to_s3(obj, filename, file_ext):
     boto3.resource('s3')\
         .Bucket(s3_bucket_name)\
-        .put_object(Key=filename + '.' + tp, Body=obj, ContentType=tp)
+        .put_object(Key=filename + '.' + file_ext, Body=obj, ContentType=file_ext)
 
 if __name__ == '__main__':
     main()
