@@ -4,26 +4,25 @@ import re
 import ast
 from time import sleep, time
 from random import random
-import threading
 from sqlconnect import create_sql_db 
 import plotjobs
 import datetime
+from shutdown import shutdown
 
 
 def manager():
-    while True:
-        print('scraping')
-        print(datetime.datetime.now())
-        main()
-        print('removing old jobs')
-        print(datetime.datetime.now())
-        remove_old_jobs() # by default jobs older than 30 days are deleted
-        print('generating html pages')
-        print(datetime.datetime.now())
-        plotjobs.main()
-        print('sleeping for 12 hours')
-        print(datetime.datetime.now())
-        sleep(60 * 60 * 12)
+    print('scraping')
+    print(datetime.datetime.now())
+    main()
+    print('removing old jobs')
+    print(datetime.datetime.now())
+    remove_old_jobs() # by default jobs older than 30 days are deleted
+    print('generating html pages')
+    print(datetime.datetime.now())
+    plotjobs.main()
+    print('sleeping for 12 hours')
+    print(datetime.datetime.now())
+    shutdown()
 
 
 def main():
