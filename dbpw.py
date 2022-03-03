@@ -1,0 +1,5 @@
+endpoint = 'database-1.cvatdti3ledc.ap-southeast-2.rds.amazonaws.com'
+port = '3306'
+dbuser = 'admin'
+dbpass = '135246ab'
+dbname = 'jobs'
